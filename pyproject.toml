@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "cookiecutter_poetry_example"
+version = "0.0.1"
+description = "This is an example of  a project generated with cookiecutter-poetry."
+authors = ["Florian Maas <ffpgmaas@gmail.com>"]
+repository = "https://github.com/fpgmaas/cookiecutter-poetry-example"
+documentation = "https://fpgmaas.github.io/cookiecutter-poetry-example/"
+readme = "README.md"
+packages = [
+  {include = "cookiecutter_poetry_example"}
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0"
+
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+pytest = "^7.1.1"
+mkdocs = "^1.3.0"
+mkdocs-material = "^8.2.9"
+mkdocstrings = "^0.18.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+target-version = ['py39']
+fast = true
+exclude = '''
+(
+  /(                        # exclude a few common directories in the
+    \.git                   # root of the project
+    | \.pytest_cache
+    | python-venv
+    | \.venv
+    | build
+    | dist
+    | \.tox
+  ))
+'''
+
+[tool.isort]
+profile = "black"
